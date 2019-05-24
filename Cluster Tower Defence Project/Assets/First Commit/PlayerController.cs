@@ -4,35 +4,31 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //SerialzeField shows private data in the inspector
+    [SerializeField] private string horizontalInputName; 
+    [SerializeField] private string verticalInputName;
+    [SerializeField] float MovementSpeed;
 
-    void start()
+    private CharacterController charController;
+
+    private void Awake()
     {
-        
+        charController = GetComponent<CharacterController>(); //Takes the CharacterController from the Players Inspector
     }
 
-
-    void Update()
+    private void Update()
     {
-        
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.Translate(0, 0, 10 * Time.deltaTime);
-        }
+        PlayerMove();
+    }
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(-10 * Time.deltaTime, 0, 0);
-        }
+    private void PlayerMove()
+    {
+        float HorizontalInput = Input.GetAxis(horizontalInputName) * MovementSpeed;
+        float VerticalInput = Input.GetAxis(verticalInputName) * MovementSpeed;
 
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.Translate(0, 0, -10 * Time.deltaTime);
-        }
+        Vector3 MoveForward = transform.forward * VerticalInput;
+        Vector3 MoveRight = transform.right * HorizontalInput;
 
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(10 * Time.deltaTime, 0, 0);
-        }
-        
+        charController.SimpleMove(MoveForward + MoveRight);
     }
 }

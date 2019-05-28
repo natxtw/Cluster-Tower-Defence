@@ -169,6 +169,32 @@ MonoBehaviour:
   horizontalInputName: Horizontal
   verticalInputName: Vertical
   MovementSpeed: 10
+  JumpFall:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1.0072021
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.69201607
+      value: 0.17715523
+      inSlope: -3.2879663
+      outSlope: -3.2879663
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.028768133
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  JumpMultiplier: 12
+  JumpKey: 32
 --- !u!195 &175320810
 NavMeshAgent:
   m_ObjectHideFlags: 0

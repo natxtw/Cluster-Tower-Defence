@@ -8,7 +8,7 @@ public class ShootingGun : MonoBehaviour
     [SerializeField] private float Range = 200.0f;
 
     public Camera RaycastChecker;
-    public ParticleSystem Flash;
+    //public ParticleSystem Flash;
 
     private void Start()
     {
@@ -24,7 +24,7 @@ public class ShootingGun : MonoBehaviour
 
     private void Fire() 
     {
-        Flash.Play(); 
+        //Flash.Play(); 
 
         RaycastHit HitInfo;
 
